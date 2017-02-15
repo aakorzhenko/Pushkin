@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Pushkin </title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"> </script>
+</head>
+<body>
+<h1> Поразмыслим о вечном вместе с Пушкиным... </h1>
+<ul>
+    {% for row in data %}
+    <li>
+        <a href="{{ url_for('show_poem',
+n = loop.index0+1 ) }}">
+           {{ row['title']}}
+        </a>
+
+    </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

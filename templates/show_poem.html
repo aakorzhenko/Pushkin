@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Pushkin </title>
+</head>
+<p>
+    <a href="{{ url_for('show_poem',
+n = n+1 ) }}">
+           Следующее стихотворение
+    </a>
+</p>
+
+<p>
+    <a href="{{ url_for('list_rows') }}">
+           На главную
+    </a>
+</p>
+
+
+<p>
+<a href="{{ url_for('show_poem',
+n = n-1 ) }}">
+           Предыдущее стихотворение
+</a>
+</p>
+
+<h2>
+
+    {{ table['title'] }}
+
+</h2>
+<h5>
+    {{ table['year'] }}
+</h5>
+<body>
+    {% for r in table['verses'] %}
+    <!-- {'Quarter': 'I квартал', 'Value': 85.2, 'Year': 2009} -->
+    <p>
+        {{ r }}
+
+    </p>
+
+    {% endfor %}
+</table>
+</body>
+</html>
