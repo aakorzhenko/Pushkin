@@ -1,6 +1,8 @@
 from flask import Flask, render_template
 import requests
 
+
+
 app = Flask(__name__)
 app.debug = True
 
@@ -31,6 +33,14 @@ def show_poem(n):
     row = data[n-1]
     return render_template("show_poem.html",
                            table=row, n=n)
+
+@app.route('/random')
+def random():
+    import random
+    poems = get_data()
+    random_poems = random.choice(poems)
+    return render_template("random.html",
+                           r_table=random_poems)
 
 if __name__ == '__main__':
     app.run()

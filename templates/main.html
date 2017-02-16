@@ -4,9 +4,59 @@
     <meta charset="UTF-8">
     <title> Pushkin </title>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"> </script>
+
+     <style type="text/css">
+        body {
+        background-color: whitesmoke;
+        background-image: url('https://pp.vk.me/c626125/v626125901/5a7ad/3dinx9ps-Ig.jpg');
+            background-size: 99.5% 100%;
+
+        }
+    H1 {
+    font-size: 200%; {# Размер шрифта #}
+    font-family: Verdana, Arial, Helvetica, sans-serif; {# Семейство шрифта #}
+    color: #336; {# Цвет текста #}
+   }
+
+         .column {
+             column-width: 200px; {# оптимальная ширина колонок #}
+             column-count: 3; {# устанавливает оптимальное число колонок #}
+             column-gap: 30px; {# оптимальная ширина колонок #}
+             column-rule: 1px solid #ccc; {# разделительная линия между колонками #}
+   }
+  </style>
 </head>
 <body>
-<h1> Поразмыслим о вечном вместе с Пушкиным... </h1>
+
+<style>
+        h1 {margin-left: 1.7%;
+        }
+</style>
+
+<h1> Неполное собрание стихотворений А. С. Пушкина </h1>
+
+<style>
+    p {
+        margin-left: 1.7%;
+        }
+    random {
+        margin-left: 1.7%;
+        outline: 4px double black; /* Параметры границы */
+        padding: 10px; /* Поля вокруг текста */
+        }
+
+</style>
+
+<div id="random" >
+    <a href="{{ url_for('random') }}">
+        <b> Любое стихотворение </b>
+    </a>
+
+</div>
+
+
+<div class="column">
+
 <ul>
     {% for row in data %}
     <li>
@@ -18,6 +68,7 @@ n = loop.index0+1 ) }}">
     </li>
     {% endfor %}
 </ul>
+</div>
 
 </body>
 </html>
