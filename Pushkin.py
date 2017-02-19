@@ -15,17 +15,24 @@ def get_data():
     for row in poems:
         row["title"] = row["title"][0]
         if row["title"] == '* * *':
-            row["title"] = row['verses'][0].upper()
+            row["title"] = row['verses'][0].upper().replace('«','').replace('"','').replace(';','').replace(':','')
         if row["title"] == '':
-            row["title"] = row['verses'][1].upper()
+            row["title"] = row['verses'][1].upper().replace('«','').replace('"','').replace(';','').replace(':','')
 
     return poems
 
+def sort_titles():
+    poems = get_data()
+    titles = []
+    for poem in poems:
+        titles.append(poem['title'])
+    titles.sort()
+    return titles
 
 @app.route('/')
 def list_rows():
     return render_template("main.html",
-                           data=get_data())
+                           data=sort_titles())
 
 @app.route('/poem/<int:n>')
 def show_poem(n):

@@ -3,50 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <title> Pushkin </title>
+    <style>
+        body {
+            background-color: whitesmoke;
+            background: url('https://pp.vk.me/c626125/v626125901/5a7ad/3dinx9ps-Ig.jpg') ;
+            background-size: 100%;
+            } /* картинка на заднем плане */
+
+        .outline1 {
+            width: 195px; height: 23px; /* Размеры */
+            background: #DCDCDC; /* Цвет фона */
+            border: 3px solid #fff; /* Белая рамка */
+            border-radius: 3px; /* Радиус скругления */
+            display: inline-block;
+            border: 2px solid transparent; /* Невидимая рамка */
+                }/* цвет для слова "предыдущее стихотворение" */
+
+        .outline2 {
+            width: 80px; height: 23px; /* Размеры */
+            background: #D0D0D0; /* Цвет фона */
+            border: 3px solid #fff; /* Белая рамка */
+            border-radius: 3px; /* Радиус скругления */
+            display: inline-block;
+            border: 2px solid transparent; /* Невидимая рамка */
+             }/* цвет для слова "на главную" */
+
+        .outline3 {
+    width: 190px; height: 23px; /* Размеры */
+    background: #DCDCDC; /* Цвет фона */
+    border: 3px solid #fff; /* Белая рамка */
+    border-radius: 3px; /* Радиус скругления */
+    display: inline-block;
+    border: 2px solid transparent; /* Невидимая рамка */
+   }
+      .outline4 {
+    width: 225px; height: 23px; /* Размеры */
+    background: #d1c9bc; /* Цвет фона */
+    border: 3px solid #fff; /* Белая рамка */
+    border-radius: 3px; /* Радиус скругления */
+    display: inline-block;
+    border: 2px solid transparent; /* Невидимая рамка */
+   }
+    .center{
+          text-align: center;
+        }
+
+   #center1{
+          margin-left: 35%;
+      }
+
+
+  </style>
+
 </head>
-<p>
+<div class="one" id="center1">
+
+<div class="outline1" style="float:left;">
+
     <a href="{{ url_for('show_poem',
-n = n+1 ) }}">
-           Следующее стихотворение
-    </a>
-</p>
-
-<p>
-    <a href="{{ url_for('list_rows') }}">
-           На главную
-    </a>
-</p>
-
-
-<p>
-<a href="{{ url_for('show_poem',
 n = n-1 ) }}">
            Предыдущее стихотворение
 </a>
-</p>
+
+</div>
+
+<div class="outline2" style="float:left;">
+    <a href="{{ url_for('list_rows') }}">
+           На главную
+    </a>
+</div>
+</div>
+
+<div class="outline3">
+<a href="{{ url_for('show_poem',
+n = n+1 ) }}">
+           Следующее стихотворение
+    </a>
+</div>
 
 <p>
+<div class="outline4">
     <a href="{{ url_for('random') }}">
-           Любое стихотворение
+           Прочитать любое стихотворение
     </a>
 
+</div>
 </p>
 
-<h2>
+<h2 class="center">
 
-    {{ table['title'] }}
+        {{ table['title'] }}
 
 </h2>
-<h5>
-    {{ table['year'] }}
+
+<h5 class="center">
+
+        {{ table['year'] }}
+
+
 </h5>
 <body>
     {% for r in table['verses'] %}
     <!-- {'Quarter': 'I квартал', 'Value': 85.2, 'Year': 2009} -->
-    <p>
-        {{ r }}
+<div class="center">
+        {{ r | safe}} <br/>
 
-    </p>
+ </div>
 
     {% endfor %}
 </table>

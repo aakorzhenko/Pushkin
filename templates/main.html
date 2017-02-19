@@ -5,51 +5,51 @@
     <title> Pushkin </title>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"> </script>
 
-     <style type="text/css">
-        body {
+<style>
+   body {
         background-color: whitesmoke;
         background-image: url('https://pp.vk.me/c626125/v626125901/5a7ad/3dinx9ps-Ig.jpg');
-            background-size: 99.5% 100%;
-
+        background-size: 100% 100%;
         }
-    H1 {
-    font-size: 200%; {# Размер шрифта #}
-    font-family: Verdana, Arial, Helvetica, sans-serif; {# Семейство шрифта #}
-    color: #336; {# Цвет текста #}
-   }
 
-         .column {
+   H1 {
+        font-size: 200%; {# Размер шрифта #}
+        font-family: Verdana, Arial, Helvetica, sans-serif; {# Семейство шрифта #}
+        color: #336; {# Цвет текста #}
+        }
+
+   .column {
              column-width: 200px; {# оптимальная ширина колонок #}
              column-count: 3; {# устанавливает оптимальное число колонок #}
-             column-gap: 30px; {# оптимальная ширина колонок #}
+             column-gap: 27px; {# оптимальная ширина колонок #}
              column-rule: 1px solid #ccc; {# разделительная линия между колонками #}
-   }
+            }
+
+   h1 {
+       margin-left: 1.7%;
+      }
+
+   #random {
+           margin-left: 1.7%;
+           width: 238px; height: 23px; /* Размеры */
+            background: #d1c9bc; /* Цвет фона */
+            border: 3px solid #fff; /* Белая рамка */
+            border-radius: 3px; /* Радиус скругления */
+            display: inline-block;
+            border: 2px solid transparent; /* Невидимая рамка */
+        }
   </style>
 </head>
 <body>
 
-<style>
-        h1 {margin-left: 1.7%;
-        }
-</style>
+
 
 <h1> Неполное собрание стихотворений А. С. Пушкина </h1>
 
-<style>
-    p {
-        margin-left: 1.7%;
-        }
-    random {
-        margin-left: 1.7%;
-        outline: 4px double black; /* Параметры границы */
-        padding: 10px; /* Поля вокруг текста */
-        }
-
-</style>
 
 <div id="random" >
     <a href="{{ url_for('random') }}">
-        <b> Любое стихотворение </b>
+        <b> Прочитать любое стихотворение </b>
     </a>
 
 </div>
@@ -59,10 +59,11 @@
 
 <ul>
     {% for row in data %}
+
     <li>
         <a href="{{ url_for('show_poem',
 n = loop.index0+1 ) }}">
-           {{ row['title']}}
+           {{ row}}
         </a>
 
     </li>

@@ -3,13 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title> Pushkin </title>
+
+    <style>
+        body {
+        background-color: whitesmoke;
+        background: url('https://pp.vk.me/c626125/v626125901/5a7ad/3dinx9ps-Ig.jpg') ;
+            background-size: 100%;
+        }
+
+   .outline {
+    width: 80px; height: 23px; /* Размеры */
+    background: #d1c9bc; /* Цвет фона */
+    border: 3px solid #fff; /* Белая рамка */
+    border-radius: 3px; /* Радиус скругления */
+    display: inline-block;
+    border: 2px solid transparent; /* Невидимая рамка */
+   }
+    #center{
+          text-align: center;
+      }
+  </style>
+
 </head>
 
-<p>
+
+<div class="outline">
     <a href="{{ url_for('list_rows') }}">
            На главную
     </a>
-</p>
+</div>
+
+<div id="center">
 
 
 <h2>
@@ -20,13 +44,16 @@
 <h5>
     {{ r_table['year'] }}
 </h5>
+</div>
+
 <body>
     {% for row in r_table['verses'] %}
     <!-- {'Quarter': 'I квартал', 'Value': 85.2, 'Year': 2009} -->
-    <p>
-        {{ row }}
+        <div id="center">
+                {{ row }} </br>
 
-    </p>
+        </div>
+
 
     {% endfor %}
 </table>
